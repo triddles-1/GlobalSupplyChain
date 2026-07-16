@@ -1,0 +1,6 @@
+{
+  "name": "Global Supply Chain Risk Management Platform",
+  "description": "Executive dashboard to monitor global suppliers, cyber threats, weather events, and financial exposures with built-in AI assistance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
