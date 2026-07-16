@@ -135,9 +135,11 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
           <h1 className="text-2xl font-bold tracking-tight text-white font-display">Risk Command Dashboard</h1>
           <p className="text-sm text-slate-400">Continuous enterprise threat intelligence, metrics, and risk heatmaps.</p>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-slate-500 font-mono">Data refreshed 1 min ago</span>
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <div className="flex items-center gap-2 bg-slate-800/20 border border-slate-800 px-3 py-1.5 rounded-xl">
+          <span className="text-xs text-indigo-400 font-mono font-medium flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            REALTIME TELEMETRY ACTIVE
+          </span>
         </div>
       </div>
 

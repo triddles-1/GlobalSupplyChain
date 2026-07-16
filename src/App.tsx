@@ -264,9 +264,9 @@ export default function App() {
 
           <div className="flex items-center gap-4">
             {/* System Status Pill */}
-            <div className="hidden sm:flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 px-3 py-1 rounded-full text-[10px] font-mono text-slate-400">
+            <div className="hidden sm:flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 px-3 py-1 rounded-full text-[10px] font-mono text-emerald-400 font-semibold shadow-inner">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>ENGINES STABLE</span>
+              <span>REALTIME TRACKING ACTIVE</span>
             </div>
 
             {/* Quick Notifications Button */}
