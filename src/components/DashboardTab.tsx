@@ -132,7 +132,7 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
       {/* Overview Head */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">Risk Command Dashboard</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-white font-display">Risk Command Dashboard</h1>
           <p className="text-sm text-slate-400">Continuous enterprise threat intelligence, metrics, and risk heatmaps.</p>
         </div>
         <div className="flex items-center gap-2">
@@ -144,11 +144,11 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
       {/* Metric Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {/* Total Suppliers */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform" />
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform" />
           <div className="flex items-center justify-between text-slate-400">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Active Supply Nodes</span>
-            <Building className="w-4.5 h-4.5 text-blue-400" />
+            <Building className="w-4.5 h-4.5 text-indigo-400" />
           </div>
           <div className="mt-3 flex items-baseline gap-2">
             <span className="text-3xl font-bold text-white tracking-tight">{stats.total}</span>
@@ -161,7 +161,7 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
         </div>
 
         {/* High Risk Nodes */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden group">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-20 h-20 bg-rose-500/5 rounded-full blur-2xl pointer-events-none" />
           <div className="flex items-center justify-between text-slate-400">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Nodes At High Risk</span>
@@ -177,7 +177,7 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
         </div>
 
         {/* Average Risk Score */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden group">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-20 h-20 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
           <div className="flex items-center justify-between text-slate-400">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Average Risk Score</span>
@@ -191,7 +191,7 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
         </div>
 
         {/* Total Exposure */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden group">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
           <div className="flex items-center justify-between text-slate-400">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Risk Exposure (High Risk)</span>
@@ -208,9 +208,9 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
       {/* Interactive Charts Section (Bento Grid) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Risk Distribution Chart */}
-        <div className="lg:col-span-1 bg-slate-900 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-1 bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-slate-200">Portfolio Risk Distribution</h3>
+            <h3 className="text-sm font-semibold text-slate-200 font-display">Portfolio Risk Distribution</h3>
             <p className="text-xs text-slate-500 mt-1">Allocation of suppliers across four severity stages.</p>
           </div>
           <div className="h-48 my-4">
@@ -230,7 +230,7 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
                   ))}
                 </Pie>
                 <Tooltip
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '10px' }}
+                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '10px' }}
                   itemStyle={{ color: '#cbd5e1', fontSize: '12px' }}
                 />
               </PieChart>
@@ -248,11 +248,11 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
         </div>
 
         {/* Regional Financial Exposure Bar Chart */}
-        <div className="lg:col-span-2 bg-slate-900 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-semibold text-slate-200">Financial Exposure by Region</h3>
+                <h3 className="text-sm font-semibold text-slate-200 font-display">Financial Exposure by Region</h3>
                 <p className="text-xs text-slate-500 mt-1">Aggregate outstanding supply spend grouped by global trade region.</p>
               </div>
               <span className="text-[10px] font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
@@ -263,17 +263,17 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
           <div className="h-56 my-4">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={regionalExposureData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#334155" strokeOpacity={0.4} />
                 <XAxis dataKey="name" stroke="#64748b" fontSize={10} tickLine={false} />
                 <YAxis stroke="#64748b" fontSize={10} tickLine={false} />
                 <Tooltip
                   cursor={{ fill: 'rgba(255,255,255,0.02)' }}
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '10px' }}
+                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '10px' }}
                   itemStyle={{ color: '#cbd5e1', fontSize: '12px' }}
                 />
-                <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]}>
+                <Bar dataKey="value" fill="#6366f1" radius={[4, 4, 0, 0]}>
                   {regionalExposureData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#3b82f6' : '#10b981'} />
+                    <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#6366f1' : '#10b981'} />
                   ))}
                 </Bar>
               </BarChart>
@@ -288,15 +288,15 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
       {/* Two Columns: Recent Alerts & High Risk Suppliers list */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Active Alerts */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-sm font-semibold text-slate-200">Active Strategic Threat Feed</h3>
+              <h3 className="text-sm font-semibold text-slate-200 font-display">Active Strategic Threat Feed</h3>
               <p className="text-xs text-slate-500 mt-0.5">Recent weather alerts, cyber exposures, and tariffs.</p>
             </div>
             <button
               onClick={() => setActiveTab('weather')}
-              className="text-xs text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1 hover:underline"
+              className="text-xs text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1 hover:underline cursor-pointer"
             >
               Alerts Hub
               <ArrowRight className="w-3 h-3" />
@@ -307,14 +307,14 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
             {alerts.slice(0, 4).map((alert) => (
               <div
                 key={alert.id}
-                className="p-3 bg-slate-950 border border-slate-800/60 rounded-xl flex gap-3.5 hover:border-slate-700 transition"
+                className="p-3 bg-slate-950/40 border border-slate-800/60 rounded-xl flex gap-3.5 hover:border-slate-700 transition"
               >
                 <div className={`p-2 rounded-lg shrink-0 flex items-center justify-center border ${
                   alert.severity === 'critical'
                     ? 'bg-rose-500/10 border-rose-500/20 text-rose-400'
                     : alert.severity === 'high'
                     ? 'bg-amber-500/10 border-amber-500/20 text-amber-400'
-                    : 'bg-blue-500/10 border-blue-500/20 text-blue-400'
+                    : 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
                 }`}>
                   <ShieldAlert className="w-4 h-4" />
                 </div>
@@ -339,15 +339,15 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
         </div>
 
         {/* Highest Risk Suppliers list */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-sm font-semibold text-slate-200">Critical Supplier Interventions</h3>
+              <h3 className="text-sm font-semibold text-slate-200 font-display">Critical Supplier Interventions</h3>
               <p className="text-xs text-slate-500 mt-0.5">Top suppliers exceeding immediate risk thresholds.</p>
             </div>
             <button
               onClick={() => setActiveTab('suppliers')}
-              className="text-xs text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1 hover:underline"
+              className="text-xs text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1 hover:underline cursor-pointer"
             >
               Full Matrix
               <ArrowRight className="w-3 h-3" />
@@ -362,11 +362,11 @@ export default function DashboardTab({ suppliers, alerts, setActiveTab, setSelec
                   setSelectedSupplierId(sup.id);
                   setActiveTab('suppliers');
                 }}
-                className="p-3 bg-slate-950 border border-slate-800/60 rounded-xl flex items-center justify-between gap-4 hover:border-slate-700 transition cursor-pointer group"
+                className="p-3 bg-slate-950/40 border border-slate-800/60 rounded-xl flex items-center justify-between gap-4 hover:border-slate-700 transition cursor-pointer group"
               >
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold text-xs text-slate-200 group-hover:text-blue-400 transition-colors truncate">
+                    <span className="font-semibold text-xs text-slate-200 group-hover:text-indigo-400 transition-colors truncate">
                       {sup.name}
                     </span>
                     <span className="text-[10px] text-slate-500 font-mono">({sup.id})</span>

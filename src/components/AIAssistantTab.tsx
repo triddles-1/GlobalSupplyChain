@@ -114,29 +114,29 @@ How can I assist you with your procurement and risk management workflows today?
     <div className="space-y-6 font-sans h-[calc(100vh-140px)] flex flex-col justify-between">
       {/* Intro Header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-white font-sans flex items-center gap-2">
-          <BrainCircuit className="w-6 h-6 text-blue-500" />
+        <h1 className="text-2xl font-bold tracking-tight text-white font-display flex items-center gap-2">
+          <BrainCircuit className="w-6 h-6 text-indigo-400" />
           Intelligence Copilot
         </h1>
         <p className="text-sm text-slate-400">Interact with the mathematical risk scoring model, draft warnings, or run dual-sourcing recommendations using server-side Gemini AI.</p>
       </div>
 
       {/* Chat Messages Frame */}
-      <div className="flex-1 min-h-0 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col justify-between overflow-hidden shadow-xl">
+      <div className="flex-1 min-h-0 bg-slate-800/30 border border-slate-700/50 rounded-2xl flex flex-col justify-between overflow-hidden shadow-xl">
         <div className="flex-1 overflow-y-auto p-5 space-y-4">
           {messages.map((m, idx) => (
             <div key={idx} className={`flex gap-4 ${m.sender === 'user' ? 'justify-end' : ''}`}>
               {/* Bot Avatar */}
               {m.sender === 'assistant' && (
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0 mt-0.5">
                   <Bot className="w-4 h-4" />
                 </div>
               )}
 
               <div className={`max-w-[80%] rounded-2xl p-4 border text-slate-300 ${
                 m.sender === 'user'
-                  ? 'bg-blue-600 border-blue-500 text-white rounded-tr-none'
-                  : 'bg-slate-950 border-slate-800/80 rounded-tl-none space-y-1'
+                  ? 'bg-indigo-600 border-indigo-500 text-white rounded-tr-none'
+                  : 'bg-slate-900 border-slate-800 rounded-tl-none space-y-1'
               }`}>
                 {m.sender === 'user' ? (
                   <p className="text-xs font-semibold leading-relaxed">{m.text}</p>
@@ -156,14 +156,14 @@ How can I assist you with your procurement and risk management workflows today?
 
           {loading && (
             <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0 mt-0.5">
                 <Bot className="w-4 h-4" />
               </div>
-              <div className="bg-slate-950 border border-slate-800/80 rounded-2xl rounded-tl-none p-4 text-xs text-slate-500 flex items-center gap-2">
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-4 text-xs text-slate-500 flex items-center gap-2">
                 <div className="flex gap-1">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce" />
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce delay-100" />
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce delay-200" />
+                  <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce" />
+                  <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce delay-100" />
+                  <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-bounce delay-200" />
                 </div>
                 <span>Copilot is formulating mitigation steps...</span>
               </div>
@@ -176,19 +176,19 @@ How can I assist you with your procurement and risk management workflows today?
         <div className="px-5 py-3 border-t border-slate-800/40 bg-slate-950/20 flex gap-2 overflow-x-auto text-[11px]">
           <button
             onClick={() => handleSendMessage('Summarize Global Network Health')}
-            className="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-400 hover:text-white transition whitespace-nowrap"
+            className="px-3 py-1.5 bg-slate-900 border border-slate-800 hover:border-slate-700/80 rounded-lg text-slate-400 hover:text-white transition whitespace-nowrap cursor-pointer"
           >
             Network Health Summary
           </button>
           <button
             onClick={() => handleSendMessage('Recommend mitigations for high-hazard solvency nodes')}
-            className="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-400 hover:text-white transition whitespace-nowrap"
+            className="px-3 py-1.5 bg-slate-900 border border-slate-800 hover:border-slate-700/80 rounded-lg text-slate-400 hover:text-white transition whitespace-nowrap cursor-pointer"
           >
             Mitigate Solvency Risks
           </button>
           <button
             onClick={() => handleSendMessage('Draft cyber alert warning email for Apex Semiconductors')}
-            className="px-3 py-1.5 bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-400 hover:text-white transition whitespace-nowrap"
+            className="px-3 py-1.5 bg-slate-900 border border-slate-800 hover:border-slate-700/80 rounded-lg text-slate-400 hover:text-white transition whitespace-nowrap cursor-pointer"
           >
             Draft Cyber Warning Email
           </button>
@@ -207,7 +207,7 @@ How can I assist you with your procurement and risk management workflows today?
           <button
             onClick={() => handleSendMessage(inputValue)}
             disabled={!inputValue.trim() || loading}
-            className="px-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition flex items-center justify-center gap-1.5 disabled:opacity-40 shadow-lg shadow-blue-500/10"
+            className="px-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition flex items-center justify-center gap-1.5 disabled:opacity-40 shadow-lg shadow-indigo-500/20 cursor-pointer"
           >
             <Send className="w-3.5 h-3.5" />
           </button>

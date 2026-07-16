@@ -243,7 +243,7 @@ export default function App() {
   const activeAlertsCount = alerts.filter(a => a.status === 'active').length;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex font-sans antialiased overflow-x-hidden selection:bg-blue-500/30 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex font-sans antialiased overflow-x-hidden selection:bg-indigo-500/30 selection:text-white">
       {/* Sidebar Navigation */}
       <Sidebar
         currentUser={currentUser}
@@ -253,9 +253,9 @@ export default function App() {
       />
 
       {/* Main Workspace Scaffolding */}
-      <div className="flex-1 flex flex-col min-h-screen relative">
+      <div className="flex-1 flex flex-col min-h-screen relative bg-slate-900">
         {/* Top Header Bar */}
-        <header className="sticky top-0 z-30 h-16 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/80 px-8 flex items-center justify-between">
+        <header className="sticky top-0 z-30 h-16 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider font-mono">
               Workspace / {settings.organizationName}
@@ -264,7 +264,7 @@ export default function App() {
 
           <div className="flex items-center gap-4">
             {/* System Status Pill */}
-            <div className="hidden sm:flex items-center gap-2 bg-slate-900/60 border border-slate-800/80 px-3 py-1 rounded-full text-[10px] font-mono text-slate-400">
+            <div className="hidden sm:flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 px-3 py-1 rounded-full text-[10px] font-mono text-slate-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>ENGINES STABLE</span>
             </div>
@@ -273,7 +273,7 @@ export default function App() {
             <div className="relative">
               <button
                 onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                className="p-2 bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 rounded-xl text-slate-400 hover:text-slate-200 transition relative"
+                className="p-2 bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800 rounded-xl text-slate-400 hover:text-slate-200 transition relative"
               >
                 <Bell className="w-4.5 h-4.5" />
                 {activeAlertsCount > 0 && (
@@ -311,7 +311,7 @@ export default function App() {
                   <div className="border-t border-slate-800 pt-2 text-center">
                     <button
                       onClick={() => { setActiveTab('weather'); setIsNotificationsOpen(false); }}
-                      className="text-[11px] text-blue-400 hover:text-blue-300 font-semibold"
+                      className="text-[11px] text-indigo-400 hover:text-indigo-300 font-semibold"
                     >
                       View Threat Hub
                     </button>

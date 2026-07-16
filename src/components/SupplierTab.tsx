@@ -225,7 +225,7 @@ export default function SupplierTab({
   return (
     <div className="space-y-6 font-sans relative">
       {/* Search and Filters Strip */}
-      <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 space-y-4">
+      <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="relative flex-1">
             <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
@@ -234,14 +234,14 @@ export default function SupplierTab({
               placeholder="Search by supplier name, reference ID, or relationship owner..."
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-slate-700 transition"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-slate-700 transition"
             />
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={handleExportCSV}
-              className="px-4 py-2.5 bg-slate-950 border border-slate-800 hover:bg-slate-900 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center gap-2"
+              className="px-4 py-2.5 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-xs font-semibold rounded-xl text-slate-300 hover:text-white transition flex items-center gap-2 cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export Matrix</span>
@@ -250,13 +250,13 @@ export default function SupplierTab({
             {canWrite ? (
               <button
                 onClick={() => setIsAddModalOpen(true)}
-                className="px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-xs font-bold rounded-xl text-white transition flex items-center gap-2 shadow-lg shadow-blue-500/20"
+                className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-xs font-bold rounded-xl text-white transition flex items-center gap-2 shadow-lg shadow-indigo-500/20 cursor-pointer"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Onboard Supplier</span>
               </button>
             ) : (
-              <div className="text-[11px] text-slate-500 flex items-center gap-1.5 px-3 py-2 bg-slate-950/50 rounded-xl border border-slate-800/50">
+              <div className="text-[11px] text-slate-500 flex items-center gap-1.5 px-3 py-2 bg-slate-900/50 rounded-xl border border-slate-800/50">
                 <Lock className="w-3.5 h-3.5 text-slate-600" />
                 <span>Write actions locked</span>
               </div>
@@ -271,7 +271,7 @@ export default function SupplierTab({
             <select
               value={selectedCountry}
               onChange={(e) => { setSelectedCountry(e.target.value); setCurrentPage(1); }}
-              className="w-full p-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
+              className="w-full p-2 bg-slate-900 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
             >
               {countries.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
@@ -282,7 +282,7 @@ export default function SupplierTab({
             <select
               value={selectedIndustry}
               onChange={(e) => { setSelectedIndustry(e.target.value); setCurrentPage(1); }}
-              className="w-full p-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
+              className="w-full p-2 bg-slate-900 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
             >
               {industries.map(i => <option key={i} value={i}>{i}</option>)}
             </select>
@@ -293,7 +293,7 @@ export default function SupplierTab({
             <select
               value={selectedRiskTier}
               onChange={(e) => { setSelectedRiskTier(e.target.value); setCurrentPage(1); }}
-              className="w-full p-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
+              className="w-full p-2 bg-slate-900 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
             >
               <option value="All">All Tiers</option>
               <option value="Low">Low (0-39)</option>
@@ -308,7 +308,7 @@ export default function SupplierTab({
             <select
               value={selectedStatus}
               onChange={(e) => { setSelectedStatus(e.target.value); setCurrentPage(1); }}
-              className="w-full p-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
+              className="w-full p-2 bg-slate-900 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-none focus:border-slate-700 font-medium"
             >
               <option value="All">All Statuses</option>
               <option value="active">Active</option>
@@ -327,7 +327,7 @@ export default function SupplierTab({
                 setSelectedStatus('All');
                 setCurrentPage(1);
               }}
-              className="w-full py-2 bg-slate-950 border border-slate-800 hover:bg-slate-900 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition"
+              className="w-full py-2 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition cursor-pointer"
             >
               Reset Filters
             </button>
@@ -338,34 +338,34 @@ export default function SupplierTab({
       {/* Main Table vs Detail Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Table Panel */}
-        <div className="lg:col-span-2 bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-slate-800/30 border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col justify-between">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-800/80 bg-slate-950/40 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                <tr className="border-b border-slate-700/30 bg-slate-950/20 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                   <th className="p-4 cursor-pointer hover:text-slate-300" onClick={() => handleSort('name')}>
-                    <span className="flex items-center gap-1">Node / ID <ArrowUpDown className="w-3 h-3" /></span>
+                    <span className="flex items-center gap-1 font-display">Node / ID <ArrowUpDown className="w-3 h-3" /></span>
                   </th>
                   <th className="p-4 cursor-pointer hover:text-slate-300" onClick={() => handleSort('country')}>
-                    <span className="flex items-center gap-1">Origin <ArrowUpDown className="w-3 h-3" /></span>
+                    <span className="flex items-center gap-1 font-display">Origin <ArrowUpDown className="w-3 h-3" /></span>
                   </th>
                   <th className="p-4 cursor-pointer hover:text-slate-300" onClick={() => handleSort('industry')}>
-                    <span className="flex items-center gap-1">Industry <ArrowUpDown className="w-3 h-3" /></span>
+                    <span className="flex items-center gap-1 font-display">Industry <ArrowUpDown className="w-3 h-3" /></span>
                   </th>
                   <th className="p-4 text-center cursor-pointer hover:text-slate-300" onClick={() => handleSort('riskScore')}>
-                    <span className="flex items-center gap-1 justify-center">Risk Score <ArrowUpDown className="w-3 h-3" /></span>
+                    <span className="flex items-center gap-1 justify-center font-display">Risk Score <ArrowUpDown className="w-3 h-3" /></span>
                   </th>
-                  <th className="p-4 text-center">Status</th>
+                  <th className="p-4 text-center font-display">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/50 text-xs">
+              <tbody className="divide-y divide-slate-700/20 text-xs">
                 {paginatedSuppliers.length > 0 ? (
                   paginatedSuppliers.map((sup) => (
                     <tr
                       key={sup.id}
                       onClick={() => setSelectedSupplierId(sup.id)}
                       className={`hover:bg-slate-950/40 transition cursor-pointer ${
-                        selectedSupplierId === sup.id ? 'bg-blue-500/5 border-l-2 border-l-blue-500' : ''
+                        selectedSupplierId === sup.id ? 'bg-indigo-600/10 border-l-2 border-l-indigo-500' : ''
                       }`}
                     >
                       <td className="p-4">
@@ -374,7 +374,7 @@ export default function SupplierTab({
                       </td>
                       <td className="p-4 text-slate-400">
                         <span className="flex items-center gap-1.5">
-                          <Globe className="w-3.5 h-3.5 text-slate-600" />
+                           <Globe className="w-3.5 h-3.5 text-slate-600" />
                           {sup.country}
                         </span>
                       </td>
@@ -410,7 +410,7 @@ export default function SupplierTab({
 
           {/* Table Pagination bar */}
           {totalPages > 1 && (
-            <div className="p-4 border-t border-slate-800/80 bg-slate-950/20 flex items-center justify-between text-xs text-slate-400">
+            <div className="p-4 border-t border-slate-700/30 bg-slate-950/20 flex items-center justify-between text-xs text-slate-400">
               <span>
                 Showing <strong className="text-slate-200">{Math.min(filteredSuppliers.length, (currentPage - 1) * itemsPerPage + 1)}-{Math.min(filteredSuppliers.length, currentPage * itemsPerPage)}</strong> of <strong className="text-slate-200">{filteredSuppliers.length}</strong> nodes
               </span>
@@ -418,7 +418,7 @@ export default function SupplierTab({
                 <button
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                  className="p-2 bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-900 transition disabled:opacity-30 text-slate-400"
+                  className="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 transition disabled:opacity-30 text-slate-400 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -428,7 +428,7 @@ export default function SupplierTab({
                 <button
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                  className="p-2 bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-900 transition disabled:opacity-30 text-slate-400"
+                  className="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 transition disabled:opacity-30 text-slate-400 cursor-pointer"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -438,13 +438,13 @@ export default function SupplierTab({
         </div>
 
         {/* Detailed Side Panel */}
-        <div className="lg:col-span-1 bg-slate-900 border border-slate-800/80 rounded-2xl p-5 min-h-[400px]">
+        <div className="lg:col-span-1 bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 min-h-[400px]">
           {selectedSupplier ? (
             <div className="space-y-6">
               {/* Profile Card Header */}
-              <div className="flex items-start justify-between border-b border-slate-800/50 pb-4">
+              <div className="flex items-start justify-between border-b border-slate-700/30 pb-4">
                 <div className="min-w-0">
-                  <h3 className="text-base font-bold text-white truncate">{selectedSupplier.name}</h3>
+                  <h3 className="text-base font-bold text-white truncate font-display">{selectedSupplier.name}</h3>
                   <p className="text-[11px] text-slate-400 font-mono mt-1 flex items-center gap-2">
                     <span>ID: {selectedSupplier.id}</span>
                     <span>•</span>
@@ -496,7 +496,7 @@ export default function SupplierTab({
                     <span className="font-bold text-white">{selectedSupplier.cyberRating}/100</span>
                   </div>
                   <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500" style={{ width: `${selectedSupplier.cyberRating}%` }} />
+                    <div className="h-full bg-indigo-500" style={{ width: `${selectedSupplier.cyberRating}%` }} />
                   </div>
                 </div>
 
@@ -518,7 +518,7 @@ export default function SupplierTab({
                     <span className="font-bold text-white">{selectedSupplier.esgRating}/100</span>
                   </div>
                   <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
-                    <div className="h-full bg-indigo-500" style={{ width: `${selectedSupplier.esgRating}%` }} />
+                    <div className="h-full bg-indigo-400" style={{ width: `${selectedSupplier.esgRating}%` }} />
                   </div>
                 </div>
 
@@ -536,24 +536,24 @@ export default function SupplierTab({
 
               {/* History area chart */}
               <div className="pt-2">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block mb-3">6-Month Risk History</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block mb-3 font-display">6-Month Risk History</span>
                 <div className="h-28">
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={selectedSupplier.riskHistory} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
                       <XAxis dataKey="date" tickFormatter={(val) => val.substring(5, 7)} stroke="#475569" fontSize={9} />
                       <YAxis domain={[0, 100]} stroke="#475569" fontSize={9} />
-                      <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px' }} />
-                      <Area type="monotone" dataKey="score" stroke="#3b82f6" fill="rgba(59, 130, 246, 0.1)" strokeWidth={2} />
+                      <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px' }} />
+                      <Area type="monotone" dataKey="score" stroke="#6366f1" fill="rgba(99, 102, 241, 0.1)" strokeWidth={2} />
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
               </div>
 
               {/* Documents lists */}
-              <div className="space-y-2 border-t border-slate-800/50 pt-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">Compliance Documentation</span>
+              <div className="space-y-2 border-t border-slate-700/30 pt-4">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block font-display">Compliance Documentation</span>
                 {selectedSupplier.documents.map((doc) => (
-                  <div key={doc.id} className="p-2 bg-slate-950 rounded-lg flex items-center justify-between border border-slate-800/30">
+                  <div key={doc.id} className="p-2 bg-slate-900/50 rounded-lg flex items-center justify-between border border-slate-800/30">
                     <div className="flex items-center gap-2 min-w-0">
                       <FileText className="w-4 h-4 text-slate-500 shrink-0" />
                       <span className="text-xs text-slate-300 truncate">{doc.name}</span>
@@ -568,7 +568,7 @@ export default function SupplierTab({
               </div>
 
               {/* Owner and Auditing */}
-              <div className="p-3 bg-slate-950 rounded-xl space-y-2 border border-slate-800/30 text-xs text-slate-400">
+              <div className="p-3 bg-slate-900/50 rounded-xl space-y-2 border border-slate-800/30 text-xs text-slate-400">
                 <div className="flex justify-between">
                   <span>Relationship Owner:</span>
                   <strong className="text-slate-200">{selectedSupplier.relationshipOwner}</strong>
@@ -580,17 +580,17 @@ export default function SupplierTab({
               </div>
 
               {/* Action items leveraging AI assistant endpoints */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/50">
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-700/30">
                 <button
                   onClick={() => handleAiAction('email')}
-                  className="py-2 px-3 bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl text-[11px] font-semibold text-slate-300 flex items-center justify-center gap-1.5 transition"
+                  className="py-2 px-3 bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-xl text-[11px] font-semibold text-slate-300 flex items-center justify-center gap-1.5 transition cursor-pointer"
                 >
-                  <Mail className="w-3.5 h-3.5 text-blue-400" />
+                  <Mail className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Draft AI Warning</span>
                 </button>
                 <button
                   onClick={() => handleAiAction('mitigate')}
-                  className="py-2 px-3 bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl text-[11px] font-semibold text-slate-300 flex items-center justify-center gap-1.5 transition"
+                  className="py-2 px-3 bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-xl text-[11px] font-semibold text-slate-300 flex items-center justify-center gap-1.5 transition cursor-pointer"
                 >
                   <Zap className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Mitigate Risk AI</span>
@@ -612,13 +612,13 @@ export default function SupplierTab({
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-fade-in">
           <div className="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 flex flex-col max-h-[90vh]">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-              <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 flex items-center gap-1">
+              <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center gap-1">
                 <Zap className="w-3 h-3" />
                 Vanguard AI Recommendation Engine
               </span>
               <button
                 onClick={() => setAiPanel(prev => ({ ...prev, isOpen: false }))}
-                className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition"
+                className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -627,7 +627,7 @@ export default function SupplierTab({
             <div className="flex-1 overflow-y-auto pr-1 min-h-[300px] text-sm text-slate-300 leading-relaxed">
               {aiPanel.loading ? (
                 <div className="h-full flex flex-col items-center justify-center py-12">
-                  <div className="w-10 h-10 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                  <div className="w-10 h-10 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin" />
                   <p className="text-xs text-slate-500 mt-4">Analysing metrics and querying server-side Gemini 3.5...</p>
                 </div>
               ) : (
@@ -641,7 +641,7 @@ export default function SupplierTab({
               <span>Powered by Gemini 3.5 Flash server proxy</span>
               <button
                 onClick={() => setAiPanel(prev => ({ ...prev, isOpen: false }))}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg font-bold text-white transition text-xs"
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-bold text-white transition text-xs cursor-pointer"
               >
                 Acknowledge & Close
               </button>
@@ -653,12 +653,12 @@ export default function SupplierTab({
       {/* Onboard Supplier Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50">
-          <div className="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6">
+          <div className="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 font-sans">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-              <h3 className="text-sm font-semibold text-white">Onboard New Supply Node</h3>
+              <h3 className="text-sm font-semibold text-white font-display">Onboard New Supply Node</h3>
               <button
                 onClick={() => setIsAddModalOpen(false)}
-                className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition"
+                className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -739,7 +739,7 @@ export default function SupplierTab({
                     max={100}
                     value={newSupForm.financialHealth}
                     onChange={(e) => setNewSupForm(prev => ({ ...prev, financialHealth: parseInt(e.target.value) }))}
-                    className="w-full p-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white"
+                    className="w-full p-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-slate-700"
                   />
                 </div>
                 <div>
@@ -750,7 +750,7 @@ export default function SupplierTab({
                     max={100}
                     value={newSupForm.cyberRating}
                     onChange={(e) => setNewSupForm(prev => ({ ...prev, cyberRating: parseInt(e.target.value) }))}
-                    className="w-full p-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white"
+                    className="w-full p-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-slate-700"
                   />
                 </div>
                 <div>
@@ -761,7 +761,7 @@ export default function SupplierTab({
                     max={100}
                     value={newSupForm.weatherExposure}
                     onChange={(e) => setNewSupForm(prev => ({ ...prev, weatherExposure: parseInt(e.target.value) }))}
-                    className="w-full p-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white"
+                    className="w-full p-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-slate-700"
                   />
                 </div>
               </div>
@@ -770,13 +770,13 @@ export default function SupplierTab({
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition"
+                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-xs font-bold rounded-lg text-white transition"
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-xs font-bold rounded-lg text-white transition cursor-pointer"
                 >
                   Onboard Node
                 </button>

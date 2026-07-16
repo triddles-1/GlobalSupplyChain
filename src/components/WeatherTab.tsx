@@ -76,22 +76,22 @@ export default function WeatherTab({
   return (
     <div className="space-y-6 font-sans">
       {/* Intro Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white font-sans">Climate & Weather Disruptions Hub</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-white font-display">Climate & Weather Disruptions Hub</h1>
           <p className="text-sm text-slate-400">Continuous environmental threat feed mapped against active production facilities.</p>
         </div>
         
         {canWrite ? (
           <button
             onClick={() => setIsSimulating(true)}
-            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-xs font-bold rounded-xl text-white transition flex items-center gap-2 shadow-lg shadow-blue-500/20 shrink-0"
+            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-xs font-bold rounded-xl text-white transition flex items-center gap-2 shadow-lg shadow-indigo-500/20 shrink-0 cursor-pointer"
           >
             <Zap className="w-3.5 h-3.5" />
             <span>Simulate Climate Event</span>
           </button>
         ) : (
-          <div className="text-[11px] text-slate-500 flex items-center gap-1.5 px-3 py-2 bg-slate-950/50 rounded-xl border border-slate-800/50 shrink-0">
+          <div className="text-[11px] text-slate-500 flex items-center gap-1.5 px-3 py-2 bg-slate-900/50 rounded-xl border border-slate-800/50 shrink-0">
             <Lock className="w-3.5 h-3.5 text-slate-600" />
             <span>Simulation restricted</span>
           </div>
@@ -99,15 +99,15 @@ export default function WeatherTab({
       </div>
 
       {/* Grid: Alerts Feed + Affected Nodes Map list */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start font-sans">
         {/* Alerts List */}
         <div className="lg:col-span-2 space-y-4">
           {weatherAlerts.length > 0 ? (
             weatherAlerts.map((alert) => (
               <div
                 key={alert.id}
-                className={`p-5 bg-slate-900 border rounded-2xl flex flex-col sm:flex-row gap-4 transition hover:border-slate-700 ${
-                  alert.status === 'mitigated' ? 'border-slate-800/40 opacity-75' : 'border-slate-800'
+                className={`p-5 bg-slate-800/30 border rounded-2xl flex flex-col sm:flex-row gap-4 transition hover:border-slate-700/60 ${
+                  alert.status === 'mitigated' ? 'border-slate-800/40 opacity-75' : 'border-slate-700/50'
                 }`}
               >
                 {/* Visual Icon Badge */}
@@ -118,7 +118,7 @@ export default function WeatherTab({
                 {/* Content */}
                 <div className="flex-1 space-y-2 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <h3 className="font-bold text-sm text-white truncate">{alert.title}</h3>
+                    <h3 className="font-bold text-sm text-white truncate font-display">{alert.title}</h3>
                     <div className="flex items-center gap-1.5 shrink-0">
                       <span className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full ${getSeverityStyle(alert.severity)}`}>
                         {alert.severity.toUpperCase()}
@@ -143,7 +143,7 @@ export default function WeatherTab({
                     {alert.affectedSuppliers.length > 0 && (
                       <>
                         <span>•</span>
-                        <span className="flex items-center gap-1 text-slate-400 font-semibold">
+                        <span className="flex items-center gap-1 text-indigo-400 font-semibold">
                           <Users className="w-3.5 h-3.5" />
                           {alert.affectedSuppliers.length} affected suppliers
                         </span>
@@ -156,7 +156,7 @@ export default function WeatherTab({
                     <div className="pt-3 border-t border-slate-800/40 mt-3 flex justify-end gap-2">
                       <button
                         onClick={() => onUpdateAlertStatus(alert.id, 'mitigated')}
-                        className="px-3.5 py-1.5 bg-slate-950 hover:bg-slate-800 text-[11px] font-semibold rounded-lg text-emerald-400 border border-emerald-950 hover:border-emerald-900 transition flex items-center gap-1"
+                        className="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-[11px] font-semibold rounded-lg text-emerald-400 border border-emerald-950 hover:border-emerald-900 transition flex items-center gap-1 cursor-pointer"
                       >
                         <CheckCircle className="w-3.5 h-3.5" />
                         <span>Mitigate Disruption</span>
@@ -164,7 +164,7 @@ export default function WeatherTab({
                       {currentUser.role === 'Admin' && (
                         <button
                           onClick={() => onDeleteAlert(alert.id)}
-                          className="px-3 py-1.5 hover:bg-rose-950/20 text-[11px] font-semibold rounded-lg text-rose-500 border border-transparent hover:border-rose-950/50 transition"
+                          className="px-3 py-1.5 hover:bg-rose-950/20 text-[11px] font-semibold rounded-lg text-rose-500 border border-transparent hover:border-rose-950/50 transition cursor-pointer"
                         >
                           Delete
                         </button>
@@ -175,7 +175,7 @@ export default function WeatherTab({
               </div>
             ))
           ) : (
-            <div className="p-12 text-center bg-slate-900 border border-slate-800 rounded-2xl text-slate-500 font-medium">
+            <div className="p-12 text-center bg-slate-800/30 border border-slate-700/50 rounded-2xl text-slate-500 font-medium">
               No weather alerts identified in active trade regions.
             </div>
           )}
@@ -183,8 +183,8 @@ export default function WeatherTab({
 
         {/* Side panel describing current climate categories */}
         <div className="space-y-6">
-          <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 space-y-4">
-            <h3 className="text-sm font-semibold text-slate-200">Environmental Exposure Mappings</h3>
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 space-y-4">
+            <h3 className="text-sm font-semibold text-slate-200 font-display">Environmental Exposure Mappings</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
               We monitor natural disasters using continuous satellite data and meteorology alerts. The risk score weights adjust exposure rates to protect capital spend.
             </p>
@@ -207,7 +207,7 @@ export default function WeatherTab({
               </div>
 
               <div className="flex items-start gap-2.5">
-                <Droplets className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                <Droplets className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
                 <div className="text-xs">
                   <strong className="text-slate-300 block">Severe Typhoons & Floodings</strong>
                   <span className="text-slate-500 leading-none">Core semiconductor foundries and logistics lanes in Asia-Pacific coastlines.</span>
@@ -221,15 +221,15 @@ export default function WeatherTab({
       {/* Simulator Modal overlay */}
       {isSimulating && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50">
-          <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6">
+          <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 font-sans">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-              <h3 className="text-sm font-semibold text-white flex items-center gap-1.5">
-                <Zap className="w-4.5 h-4.5 text-blue-400 animate-pulse" />
+              <h3 className="text-sm font-semibold text-white flex items-center gap-1.5 font-display">
+                <Zap className="w-4.5 h-4.5 text-indigo-400 animate-pulse" />
                 Climate Disruption Simulator
               </h3>
               <button
                 onClick={() => setIsSimulating(false)}
-                className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition"
+                className="p-1.5 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -297,13 +297,13 @@ export default function WeatherTab({
                 <button
                   type="button"
                   onClick={() => setIsSimulating(false)}
-                  className="px-4 py-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition"
+                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-xs font-bold rounded-lg text-white transition flex items-center gap-1.5"
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-xs font-bold rounded-lg text-white transition flex items-center gap-1.5 cursor-pointer"
                 >
                   <Zap className="w-3.5 h-3.5" />
                   <span>Trigger Alert</span>

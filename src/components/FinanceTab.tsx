@@ -33,7 +33,7 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
       counts[s.currency] = (counts[s.currency] || 0) + s.spend;
     });
 
-    const colors = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#6366f1'];
+    const colors = ['#6366f1', '#10b981', '#f59e0b', '#8b5cf6', '#4338ca'];
     return Object.entries(counts).map(([name, value], idx) => ({
       name,
       value: Math.round(value / 1000000), // Millions
@@ -71,15 +71,15 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
     <div className="space-y-6 font-sans">
       {/* Intro Header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-white font-sans">Financial Exposure & Solvency Audit</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-white font-display">Financial Exposure & Solvency Audit</h1>
         <p className="text-sm text-slate-400">Monitoring outstanding spend concentration, contract solvency ratings, and currency inflation risk.</p>
       </div>
 
       {/* Stats strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 font-sans">
         {/* Outstanding Spend */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">Aggregate Contract Spend</span>
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block font-display">Aggregate Contract Spend</span>
           <div className="mt-2.5 flex items-baseline gap-2">
             <span className="text-3xl font-bold text-white tracking-tight">{formatMoney(stats.totalSpend)}</span>
             <span className="text-xs text-emerald-400 font-semibold flex items-center gap-0.5">
@@ -91,8 +91,8 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
         </div>
 
         {/* Average credit score */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">Average Credit Score</span>
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block font-display">Average Credit Score</span>
           <div className="mt-2.5 flex items-baseline gap-2">
             <span className="text-3xl font-bold text-white tracking-tight">{stats.avgCreditScore}</span>
             <span className="text-xs text-slate-400 font-mono">/850 Dun &amp; Brad</span>
@@ -101,8 +101,8 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
         </div>
 
         {/* Bankruptcy hazard */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">Bankruptcy Hazard</span>
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block font-display">Bankruptcy Hazard</span>
           <div className="mt-2.5 flex items-baseline gap-2">
             <span className="text-3xl font-bold text-rose-400 tracking-tight">{stats.highRiskBankruptcyCount}</span>
             <span className="text-xs text-rose-500 font-semibold">critical nodes</span>
@@ -111,8 +111,8 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
         </div>
 
         {/* High Revenue Dependency */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 relative overflow-hidden">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block">High Revenue Dependency</span>
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 relative overflow-hidden">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block font-display">High Revenue Dependency</span>
           <div className="mt-2.5 flex items-baseline gap-2">
             <span className="text-3xl font-bold text-white tracking-tight">{stats.highDependencyCount}</span>
             <span className="text-xs text-slate-400 font-mono">nodes &gt;= 20%</span>
@@ -121,11 +121,11 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 font-sans">
         {/* Bankruptcy chart */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-slate-200">Bankruptcy Rating Distribution</h3>
+            <h3 className="text-sm font-semibold text-slate-200 font-display">Bankruptcy Rating Distribution</h3>
             <p className="text-xs text-slate-500 mt-0.5">Classification of suppliers according to Dun &amp; Bradstreet credit scores.</p>
           </div>
           <div className="h-56 my-4">
@@ -136,9 +136,9 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
                 <YAxis stroke="#64748b" fontSize={10} tickLine={false} />
                 <Tooltip
                   cursor={{ fill: 'rgba(255,255,255,0.01)' }}
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '10px' }}
+                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '10px' }}
                 />
-                <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]}>
+                <Bar dataKey="value" fill="#6366f1" radius={[4, 4, 0, 0]}>
                   {bankruptcyDistribution.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.fill} />
                   ))}
@@ -152,9 +152,9 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
         </div>
 
         {/* Currency Exposure breakdown */}
-        <div className="bg-slate-900 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-slate-200">Currency Exposure Distribution</h3>
+            <h3 className="text-sm font-semibold text-slate-200 font-display">Currency Exposure Distribution</h3>
             <p className="text-xs text-slate-500 mt-0.5">Outstanding spend obligations denominated in foreign currencies.</p>
           </div>
           <div className="h-52 my-4 flex items-center justify-center">
@@ -174,7 +174,7 @@ export default function FinanceTab({ suppliers }: FinanceTabProps) {
                   ))}
                 </Pie>
                 <Tooltip
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '10px' }}
+                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '10px' }}
                   itemStyle={{ color: '#cbd5e1', fontSize: '11px' }}
                 />
               </PieChart>
